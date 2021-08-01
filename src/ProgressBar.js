@@ -10,8 +10,20 @@ import "react-circular-progressbar/dist/styles.css";
 
 const smile = ["👈", "😤", "🥱", "🙂", "😊", "😍"];
 const color = ["", "red", "orange", "rgb(241, 241, 66)", "#9ff025", "Green"];
+
 export default function LinearDeterminate() {
+ // const [starcolor1, setstarcolor1] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  // const handlersetstarcolor1 = () => {
+  //   setstarcolor1(!starcolor1);
+  //   setProgress((oldProgress) => {
+  //     if (oldProgress + 20 > 100) {
+  //       return oldProgress;
+  //     }
+  //     return oldProgress + 20;
+  //   });
+  // };
 
   const handlersetProgressIncrease = () => {
     setProgress((oldProgress) => {
@@ -34,6 +46,14 @@ export default function LinearDeterminate() {
     <div className="progress">
       <div className="bar">
         <h2>Rating </h2>
+        {/* <div className={starcolor1 ? "white" : "gloden"}>
+          <i class="fa fa-star" onClick={handlersetstarcolor1}></i>
+        </div>
+
+        <i class="fa fa-star white-color "></i>
+        <i class="fa fa-star white-color "></i>
+        <i class="fa fa-star white-color "></i>
+        <i class="fa fa-star white-color "></i> */}
         <div className="change-bar">
           <AddOutlinedIcon onClick={handlersetProgressIncrease}>
             increase
@@ -55,8 +75,9 @@ export default function LinearDeterminate() {
               pathColor: color[progress / 20],
               trailColor: "grey",
             })}
-            
-          ><div className="circle">{progress/20}/5</div></CircularProgressbarWithChildren>
+          >
+            <div className="circle">{progress / 20}/5</div>
+          </CircularProgressbarWithChildren>
         </div>
       </div>
     </div>

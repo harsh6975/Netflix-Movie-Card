@@ -1,62 +1,44 @@
 import React from "react";
 import "./styles.css";
-import Videoo from './videoo'
-function Video() {
+import ReactPlayer from "react-player";
+function Video(props) {
+  var iswatched=false;
+  var pause=false;
+  var start=false;
+  var play=false;
+  console.log(iswatched)
   return (
     <div className="video">
       <h1>Watch Trailer</h1>
-
-      {/* <div class="video-item">
-        <div className="video-wrapper">
-          <h3>Season 1</h3>
-          <ReactPlayer
-            className="react-player"
-            
-            
-            controls
-            url="https://www.youtube.com/watch?v=fvCdLmxnkj0"
-          />
-        </div> */}
-        {/* <div className="video-wrapper">
-          <h3>Season 2</h3>
-          <ReactPlayer
-            width="360px"
-            height="auto"
-            className="react-player"
-            controls
-            url="https://www.youtube.com/watch?v=ZAXA1DV4dtI"
-          />
-        </div>
-        <div className="video-wrapper">
-          <h3>Season 3</h3>
-          <ReactPlayer
-            width="100%"
-            height="100%"
-            className="react-player"
-            controls
-            url="https://www.youtube.com/watch?v=erNiLcFm-0Q"
-          />
-        </div>
-        <div className="video-wrapper">
-          <h3>Season 4</h3>
-          <ReactPlayer
-            width="100%"
-            height="100%"
-            className="react-player"
-            controls
-            url="https://www.youtube.com/watch?v=p_PJbmrX4uk"
-          />
-        </div>
-        <div className="player-wrapper1">
-          <ReactPlayer
-            className="react-player"
-            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="100%"
-            height="100%"
-          />
-        </div> */}
-        {/* </div> */}
-      <Videoo/>
+      <div className="player-wrapper">
+      <ReactPlayer
+        className="react-player"
+        url="https://www.youtube.com/watch?v=p_PJbmrX4uk"
+        width="80%"
+        height="80%"
+        onEnded= {()=>{
+          iswatched=true;
+          props.onEnd(iswatched);
+          console.log("Video",iswatched);
+        }}
+        onPause={()=>{
+          pause=true
+          props.onPause(pause);
+          console.log("pause",pause)
+        }}
+        onStart={()=>{
+          start=true
+          props.onStart(start);
+          console.log("start")
+        }}
+        onPlay={()=>{
+          play=true
+          props.onPlay(play);
+        }}
+        controls
+      />
+    </div>
+      
     </div>
   );
 }

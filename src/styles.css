@@ -282,7 +282,12 @@
   top: 0;
   left: 10%;
 }
-
+.white{
+  color: white;
+}
+.golden{
+  color: goldenrod;
+}
 @media only screen and (max-width: 1615px) {
   html {
     font-size: 14px;
@@ -313,34 +318,29 @@
     font-weight: 800;
   }
 }
-@media only screen and (max-width: 1114px) {
+@media only screen and (max-width: 1120px) {
   html {
     font-size: 12px;
-  }
-
-  .item-content-title {
-    font-size: 400%;
-    font-weight: 700;
   }
   .but {
     font-size: 15px;
   }
-
-  .hero-slide-item-content {
-    position: relative;
-  }
-
-  .hero-slide-item img {
-    height: 100%;
-  }
-
+}
+@media only screen and (max-width: 956px) {
   .item-content-title {
-    font-size: 3rem;
+    font-size: 400%;
+    font-weight: 800;
+  }
+}
+@media only screen and (max-width: 851px) {
+  .item-content-title {
+    font-size: 370%;
+    font-weight: 800;
   }
 }
 @media only screen and (max-width: 790px) {
   .item-content-title {
-    font-size: 300%;
+    font-size: 350%;
     font-weight: 750;
   }
   .movie-title {

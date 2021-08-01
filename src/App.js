@@ -1,15 +1,12 @@
 import "./styles.css";
 import Cards from "./Card";
-import Video from "./Video";
-
+// import Video from "./Video";
+import Menu from "./Menu";
 export default function App() {
   return (
     <div className="App">
       <Cards />
-      <section id="video">
-      <Video />
-      </section>
-      
+      <Menu />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link as Link1 } from "react-scroll";
 import "./styles.css";
 import logo from "./logo.jpg";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 
 const Card = () => {
   return (
@@ -75,7 +75,6 @@ const Card = () => {
           <button className="but">Watch Trailer</button>
         </Link1>
       </div>
-      <Menu />
     </div>
   );
 };
