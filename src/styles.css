@@ -231,7 +231,7 @@
 }
 .bar {
   display: flex;
-  margin-top: 3%;
+  margin-top: 2%;
   justify-content: center;
   align-items: center;
 }
@@ -240,6 +240,7 @@
   font-size: 45px;
   font-weight: 600;
   margin-right: 2%;
+  margin-top: 1%;
 }
 .change-bar {
   display: flex;
@@ -282,11 +283,22 @@
   top: 0;
   left: 10%;
 }
-.white{
+
+.star {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+.star-item > .MuiSvgIcon-root {
+  font-size: 50px;
   color: white;
 }
-.golden{
-  color: goldenrod;
+.star-item-active > .MuiSvgIcon-root {
+  font-size: 50px;
+  color: gold;
 }
 @media only screen and (max-width: 1615px) {
   html {
@@ -325,6 +337,9 @@
   .but {
     font-size: 15px;
   }
+  .bar h2 {
+    margin-top: 3%;
+  }
 }
 @media only screen and (max-width: 956px) {
   .item-content-title {
@@ -338,6 +353,7 @@
     font-weight: 800;
   }
 }
+
 @media only screen and (max-width: 790px) {
   .item-content-title {
     font-size: 350%;
@@ -353,8 +369,6 @@
   .item-content-description {
     display: none;
   }
-}
-@media only screen and (max-width: 790px) {
   .hero-item-content {
     display: none;
   }
@@ -426,5 +440,28 @@
   .circleProgress {
     width: 120px;
     height: 120px;
+  }
+  .star-item > .MuiSvgIcon-root {
+    font-size: 30px;
+  }
+  .star-item-active > .MuiSvgIcon-root {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .star {
+    margin-top: 0%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0%;
+  }
+  .bar h2 {
+    margin-top: 3%;
+    padding-left: 5px;
+  }
+  .circleProgress {
+    width: 100px;
+    height: 100px;
   }
 }

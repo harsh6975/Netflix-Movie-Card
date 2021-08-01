@@ -4,6 +4,7 @@ import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
 import ThumbDownAltOutlinedIcon from "@material-ui/icons/ThumbDownAltOutlined";
 import ArrowDropDownCircleOutlinedIcon from "@material-ui/icons/ArrowDropDownCircleOutlined";
 import React, { useState } from "react";
+import { Link as Link1 } from "react-scroll";
 import "./styles.css";
 import { Collapse } from "@material-ui/core";
 import ProgressBar from "./ProgressBar";
@@ -15,33 +16,31 @@ const Menu = () => {
   const [color3, setcolor3] = useState(false);
   const [color4, setcolor4] = useState(false);
   const [color5, setcolor5] = useState(false);
-  
-  console.log("color1",color1)
-  const isStart=(start)=>{
-    if(start===true){
-      console.log("color1 before",color1)
-      if(color1===false){
+  const [play,setplay]=useState(false);
+  console.log("color1", color1);
+  const isStart = (start) => {
+    if (start === true) {
+      console.log("color1 before", color1);
+      if (color1 === false) {
         handleSercolor1();
-        console.log("color1 after",color1)
+        console.log("color1 after", color1);
       }
-      
     }
-  }
-  const isPlay=(play)=>{
-    if(play===true){
+  };
+  const isPlay = (play) => {
+    if (play === true) {
       //console.log("color1 before",color1)
-      if(color1===false){
+      if (color1 === false) {
+        handleSercolor1();
+        //console.log("color1 after",color1)
+      }
+    } else {
+      if (color1 === true) {
         handleSercolor1();
         //console.log("color1 after",color1)
       }
     }
-    else{
-      if(color1===true){
-        handleSercolor1();
-        //console.log("color1 after",color1)
-      }
-    }
-  }
+  };
   const iswatched = (watch) => {
     console.log("Menu", watch);
     if (watch === true) {
@@ -50,25 +49,25 @@ const Menu = () => {
         console.log("color2", color2);
         handleSercolor2();
       }
-      if(color1===true){
+      if (color1 === true) {
         handleSercolor1();
       }
     }
   };
 
-  const isPause=(pause)=>{
-      if(pause===true){
-        if(color1===true){
-          handleSercolor1();
-        }
+  const isPause = (pause) => {
+    if (pause === true) {
+      if (color1 === true) {
+        handleSercolor1();
       }
-      else{
-        if(color1===false){
-          handleSercolor1();
-        }
+    } else {
+      if (color1 === false) {
+        handleSercolor1();
       }
-  }
+    }
+  };
   const handleSercolor1 = () => {
+    setplay(!play)
     setcolor1(!color1);
   };
   const handleSercolor2 = () => {
@@ -103,9 +102,16 @@ const Menu = () => {
         <div className="menu">
           <div className={!color1 ? "menu-item" : "menu-item-active"}>
             <span className="play">Play</span>
-            <PlayCircleFilledWhiteOutlinedIcon
-              onClick={handleSercolor1}
-            ></PlayCircleFilledWhiteOutlinedIcon>
+            <Link1
+              to="video"
+              smooth={true}
+              duration={1000}
+              className={!color1 ? "menu-item" : "menu-item-active"}
+            >
+              <PlayCircleFilledWhiteOutlinedIcon
+                onClick={handleSercolor1}
+              ></PlayCircleFilledWhiteOutlinedIcon>
+            </Link1>
           </div>
           <div className={!color2 ? "menu-item" : "menu-item-active"}>
             <span className="Watched">Watched</span>
@@ -147,7 +153,13 @@ const Menu = () => {
       <ProgressBar />
       <div className="border"></div>
       <section id="video">
-        <Video onEnd={iswatched} onPause={isPause} onStart={isStart} onPlay={isPlay}/>
+        <Video
+          onEnd={iswatched}
+          onPause={isPause}
+          onStart={isStart}
+          onPlay={isPlay}
+          Play={play}
+        />
       </section>
     </div>
   );
